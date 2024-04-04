@@ -11,25 +11,35 @@
             <div class="sub-title">
                 quick and easy.
             </div>
-            <form action="<?php echo URLROOT; ?>/users/create" method="POST">
+            <form action="<?php echo URLROOT . '/users/edit/' . $data['id']; ?>" method="POST">
                 <div class="form-item">
-                    <input type="text" class="form-input" placeholder="First name" name="firstname" value="">
+                    <input type="text" class="form-input" placeholder="First name" name="firstname" value="<?= $data['firstname']; ?>">
                     <span class="form-error">
                         <?= $data['firstnameError']; ?>
                     </span>
                 </div>
                 <div class="form-item">
-                    <input type="text" class="form-input" placeholder="Last name" name="lastname" value="">
+                    <input type="text" class="form-input" placeholder="Last name" name="lastname" value="<?= $data['lastname']; ?>">
                     <span class="form-error">
                         <?= $data['lastnameError']; ?>
 
                     </span>
                 </div>
+                <!-- <?php var_dump($data['user']); ?> -->
                 <div class="form-item">
                     <select name="role" id="" class="form-input select">
                         <option disabled selected>Choose Role</option>
                         <?php foreach ($data['roles'] as $role) : ?>
-                            <option <?= get_select('role', $role->id); ?> value="<?php echo $role->id; ?>"><?php echo $role->role; ?></option>
+                            <?php if (!empty($data['role'])) {
+                                $selectedRole = $data['role'];
+                                // $selectedRoleName = $data['user']->role_name;
+                            } else {
+                                $selectedRole = $role->id;
+                                // $selectedRoleName = $role->role;
+                            }
+
+                            ?>
+                            <option <?= get_select('role', $selectedRole); ?> value="<?php echo $role->id; ?>"><?php echo $role->role; ?></option>
 
                         <?php endforeach; ?>
                     </select>
@@ -42,7 +52,14 @@
                     <select name="department" id="" class="form-input select">
                         <option disabled selected>Choose Department</option>
                         <?php foreach ($data['departments'] as $dpt) : ?>
-                            <option <?= get_select('department', $dpt->id); ?> value="<?php echo $dpt->id; ?>"><?php echo $dpt->department; ?></option>
+                            <?php if (!empty($data['department'])) {
+                                $selectedDept = $data['department'];
+                            } else {
+                                $selectedDept = $dpt->id;
+                            }
+
+                            ?>
+                            <option <?= get_select('department', $selectedDept); ?> value="<?php echo $dpt->id; ?>"><?php echo $dpt->department; ?></option>
 
                         <?php endforeach; ?>
                     </select>
@@ -52,7 +69,7 @@
                     </span>
                 </div>
                 <div class="form-item">
-                    <input type="text" class="form-input" placeholder="Username" name="username" value="">
+                    <input type="text" class="form-input" placeholder="Username" name="username" value="<?php echo $data['username']; ?>">
                     <span class="form-error">
                         <?= $data['usernameError']; ?>
 

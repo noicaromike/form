@@ -32,7 +32,7 @@ function isAdmin()
 function formatDate($data)
 {
     $date = new DateTime($data);
-    $formatted = $date->format('F d, Y');
+    $formatted = $date->format('F d, Y h:i:s A');
     return $formatted;
 }
 

@@ -91,6 +91,7 @@ ul li{
 }
 
 .card{
+    margin-top: 3rem;
     background-color: var(--panel-color);
     width: 100%;
     max-width: 425px;
@@ -536,14 +537,33 @@ tr:nth-of-type(2n){
     font-size: 1rem;
 
 }
-.add-btn{
-    padding-bottom: 2rem;
+.action-item{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
-.link-btn{
-    padding: 5px 10px;
-    background-color: var(--primary-color);
-    color: #fff;
-    border-radius: 8px;
+.add-btn{
+    max-width: max-content;
+    background-color: var(--panel-color);
+    padding: 10px 1rem;
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    font-size: 0.813rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+.link-mb{
+    margin-bottom: 1rem;
+}
+
+
+.pagination{
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 

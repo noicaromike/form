@@ -18,7 +18,7 @@
             <div class="box box2">
                 <i class="uil uil-comments"></i>
                 <span class="text">Total Users</span>
-                <span class="number">2</span>
+                <span class="number"><?= $data['totalUsers']; ?></span>
             </div>
             <div class="box box3">
                 <i class="uil uil-share"></i>
